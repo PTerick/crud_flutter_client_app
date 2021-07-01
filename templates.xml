@@ -34,7 +34,7 @@
       <incrementRef ref="flutter_routing"/>
       <incrementRef ref="flutter_i18n"/>
       <incrementRef ref="flutter_component"/>
-      <incrementRef ref="flutter_main"/>
+      <incrementRef ref="flutter_screens"/>
     </increment>
     <increment name="app_flutter_structure" description="flutter devon4ng environments">
       <templateRef ref="environment.android.ts" />
@@ -65,8 +65,19 @@
       <templateRef ref="${variables.etoName#lower_case}-detail.page.scss"/>
       <templateRef ref="business-operator.service.ts"/>
     </increment>
-    <increment name="flutter_main" description="flutter main">
+    <increment name="flutter_screens" description="flutter screens">
       <templateRef ref="main.dart"/>
+       <templateRef ref="splash_normal_view.dart"/>
+       <templateRef ref="splash_large_view.dart"/>
+        <templateRef ref="${variables.etoName#lower_case}_detail_large_view.dart"/>
+        <templateRef ref="${variables.etoName#lower_case}_detail_normal_view.dart"/>
+            <templateRef ref="${variables.etoName#lower_case}_insert_large_view.dart"/>
+        <templateRef ref="${variables.etoName#lower_case}_insert_normal_view.dart"/>
+        <templateRef ref="${variables.etoName#lower_case}_list_large_view.dart"/>
+        <templateRef ref="${variables.etoName#lower_case}_list_normal_view.dart"/>
+           <templateRef ref="login_normal_view.dart"/>
+       <templateRef ref="login_large_view.dart"/>
+       
     </increment>
   </increments>
 </templatesConfiguration>
