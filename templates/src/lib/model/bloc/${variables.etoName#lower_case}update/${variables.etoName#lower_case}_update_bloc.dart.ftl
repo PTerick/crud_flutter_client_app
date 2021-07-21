@@ -5,20 +5,26 @@ import 'package:devon4ng_flutter_application_template/model/repository/${variabl
 import 'package:devon4ng_flutter_application_template/util/safe_print.dart';
 import 'package:dio/dio.dart';
 
-class ${variables.etoName?cap_first}InsertBloc
+class ${variables.etoName?cap_first}UpdateBloc
     extends AbstractBloc<AbstractBlocEvent, AbstractBlocState> {
-  ${variables.etoName?cap_first}InsertBloc() : super(EmptyInitialState());
-
+  ${variables.etoName?cap_first}UpdateBloc() : super(EmptyInitialState());
+  int id =0; 
   @override
   Stream<AbstractBlocState> mapEventToState(AbstractBlocEvent event) async* {
+
+    if (event is Retrieve${variables.etoName?cap_first}IdBlocEvent) {
+      id = event.id;     
+    }
+
     try {
-      if (event is ${variables.etoName?cap_first}InsertBlocEvent) {
+
+      if (event is ${variables.etoName?cap_first}UpdateBlocEvent) {
         if (await hasConnectivity()) {
           yield LoadingState();
 
           var repository = ${variables.etoName?cap_first}ListRepository();
           var response =
-              await repository.insert(<#list pojo.fields as field><#if field?has_next>this.${field.name}, <#else>event.${field.name}</#if></#list>);
+              await repository.update(id, <#list pojo.fields as field><#if field?is_first><#else> ,this.${field.name}</#if></#list>);
           yield OnSuccessState(OnSuccessState.LOGIN, response);
         } else {
           yield NoConnectivityState();
@@ -38,7 +44,16 @@ class ${variables.etoName?cap_first}InsertBloc
   }
 }
 
-class ${variables.etoName?cap_first}InsertBlocEvent extends AbstractBlocEvent {
+class Retrieve${variables.etoName?cap_first}IdBlocEvent extends AbstractBlocEvent {
+  final int id;
+
+  Retrieve${variables.etoName?cap_first}IdBlocEvent(this.id);
+
+  @override
+  List<Object> get props => [id];
+}
+
+class ${variables.etoName?cap_first}UpdateBlocEvent extends AbstractBlocEvent {
   <#list pojo.fields as field>
   <#if field?is_first>
   <#else>
@@ -46,7 +61,7 @@ class ${variables.etoName?cap_first}InsertBlocEvent extends AbstractBlocEvent {
   </#if>
   </#list>
 
-  ${variables.etoName?cap_first}InsertBlocEvent(<#list pojo.fields as field><#if field?is_first><#else><#if field?has_next>this.${field.name}, <#else>this.${field.name}</#if></#if></#list>);
+  ${variables.etoName?cap_first}UpdateBlocEvent(<#list pojo.fields as field><#if field?is_first><#else><#if field?has_next>this.${field.name}, <#else>this.${field.name}</#if></#if></#list>);
 
   @override
   List<Object> get props => [<#list pojo.fields as field><#if field?is_first><#else><#if field?has_next>${field.name}, <#else>${field.name}</#if></#if></#list>];
