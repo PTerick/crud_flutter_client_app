@@ -35,6 +35,11 @@
       <templateRef ref="README.md"/>
 
 
+
+      <templateRef ref="platform_utils.dart"/>
+      <templateRef ref="safe_print.dart"/>
+
+
     </increment>
     <increment name="flutter_screens" description="flutter screens">
       <templateRef ref="main.dart"/>
@@ -56,6 +61,7 @@
       <templateRef ref="${variables.etoName#lower_case}_detail_bloc.dart"/>
       <templateRef ref="${variables.etoName#lower_case}_list_bloc.dart"/>
       <templateRef ref="${variables.etoName#lower_case}_insert_bloc.dart"/>
+      <templateRef ref="${variables.etoName#lower_case}_update_bloc.dart"/>
       <templateRef ref="authentication_bloc.dart"/>
       <templateRef ref="configuration_bloc.dart"/>
       <templateRef ref="abstract_bloc.dart"/>
@@ -69,13 +75,15 @@
       <templateRef ref="${variables.etoName#lower_case}_list_response_dto.dart"/>
       <templateRef ref="${variables.etoName#lower_case}_list_content_response_dto.dart"/>
       <templateRef ref="${variables.etoName#lower_case}_list_request_dto.dart"/>
+      <templateRef ref="${variables.etoName#lower_case}_update_response_dto.dart"/>
+      <templateRef ref="${variables.etoName#lower_case}_update_request_dto.dart"/>
       <templateRef ref="login_request_dto.dart"/>
       <templateRef ref="token_response_dto.dart"/>
       <templateRef ref="pageable_dto.dart"/>
       <templateRef ref="pageable_sort_dto.dart"/>
       <templateRef ref="http_client_provider.dart"/>            
       <templateRef ref="rest_client.dart"/>
-      <templateRef ref="rest_client.g.dart"/>
+      
       <templateRef ref="${variables.etoName#lower_case}_repository.dart"/>            
       <templateRef ref="abstract_repository.dart"/>            
       <templateRef ref="authentication_repository.dart"/>           

@@ -83,8 +83,8 @@ class _ScreenState extends AbstractState<AuthenticationBloc, LoginLargeView> {
         //List<Cookie> results = CookieJar().loadForRequest(Uri.parse("http://10.24.219.91:8081"));
         //print(results);
 
-        //Navigator.pushReplacementNamed(context, "/employeeDetailScreen");
-        Navigator.pushReplacementNamed(context, "/employeeListScreen");
+        //Navigator.pushReplacementNamed(context, "/${variables.etoName?lower_case}DetailScreen");
+        Navigator.pushReplacementNamed(context, "/${variables.etoName?lower_case}ListScreen");
         return;
       }
 
