@@ -21,9 +21,18 @@ class ${variables.etoName?cap_first}ListRepository extends AbstractRepository {
   }
 
   Future<${variables.etoName?cap_first}InsertResponseDto> insert(
-      String name, String surname, String email) {
+      <#list pojo.fields as field><#if field?is_first><#else><#if field?has_next>String ${field.name}, <#else> String ${field.name}</#if></#if></#list>) {
     ${variables.etoName?cap_first}InsertRequestDto dto =
-        ${variables.etoName?cap_first}InsertRequestDto(name, surname, email);
+        ${variables.etoName?cap_first}InsertRequestDto(<#list pojo.fields as field><#if field?is_first><#else><#if field?has_next>${field.name}, <#else>${field.name}</#if></#if></#list>);
+    return restClient.insert(apiVersion, dto);
+  }
+
+
+
+   Future<${variables.etoName?cap_first}UpdateResponseDto> update(
+      int id, <#list pojo.fields as field><#if field?is_first><#else><#if field?has_next>String ${field.name}, <#else> String ${field.name}</#if></#if></#list>) {
+    ${variables.etoName?cap_first}InsertRequestDto dto =
+        ${variables.etoName?cap_first}InsertRequestDto(id, <#list pojo.fields as field><#if field?is_first><#else><#if field?has_next>${field.name}, <#else>${field.name}</#if></#if></#list>);
     return restClient.insert(apiVersion, dto);
   }
 

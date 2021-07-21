@@ -9,7 +9,7 @@ class ${variables.etoName?cap_first}DetailResponseDto {
   final ${JavaUtil.getDartType(field.type)} ${field.name} ;
   </#list>
 
-  ${variables.etoName?cap_first}DetailResponseDto(this.modificationCounter, this.id <#list pojo.fields as field> , this.${field.name} </#list>);
+  ${variables.etoName?cap_first}DetailResponseDto(this.modificationCounter, this.id, <#list pojo.fields as field><#if field?has_next>this.${field.name}, <#else>this.${field.name} </#if></#list>);
 
   factory ${variables.etoName?cap_first}DetailResponseDto.fromJson(Map<String, dynamic> json) =>
       _$${variables.etoName?cap_first}DetailResponseDtoFromJson(json);

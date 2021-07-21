@@ -41,7 +41,7 @@ abstract class RestClient {
       @Path("apiVersion") String apiVersion,
       @Body() ${variables.etoName?cap_first}InsertRequestDto dto);
 
-  //@POST("/${variables.etoName?lower_case}management/{apiVersion}/${variables.etoName?lower_case}/")
+  //@POST("/${variables.etoName?lower_case}management/{apiVersion}/${variables.etoName?lower_case}")
   //Future<void> update(@Body() ${variables.etoName?cap_first}DetailDto dto, @Path("apiVersion") String apiVersion);
 
   @DELETE("/${variables.etoName?lower_case}management/{apiVersion}/${variables.etoName?lower_case}/{id}")
