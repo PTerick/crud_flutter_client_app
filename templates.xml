@@ -30,53 +30,36 @@
 
   <increments>
   <increment name="devon4ng-app" description="CRUD devon4ng flutter App">
-      <incrementRef ref="app_flutter_structure"/>
-      <incrementRef ref="flutter_routing"/>
-      <incrementRef ref="flutter_i18n"/>
-      <incrementRef ref="flutter_component"/>
+      
+      
+      <incrementRef ref="flutter_main"/>
+     
       <incrementRef ref="flutter_screens"/>
     </increment>
-    <increment name="app_flutter_structure" description="flutter devon4ng environments">
-      <templateRef ref="environment.android.ts" />
-      <templateRef ref="environment.prod.ts" />
-      <templateRef ref="environment.ts" />
-    </increment>
-    <increment name="flutter_routing" description="flutter routing">
-      <templateRef ref="app-routing.module.ts"/>
-    </increment>
-    <increment name="flutter_i18n" description="flutter i18n">
-      <templateRef ref="es.json"/>
-      <templateRef ref="en.json"/>
-    </increment>
-    <increment name="flutter_component" description="flutter List">
-      <templateRef ref="${variables.etoName#lower_case}.ts"/>
-      <templateRef ref="${variables.etoName#lower_case}-search-criteria.ts"/>
-      <templateRef ref="paginated-list-to.ts"/>
-      <templateRef ref="app.component.ts"/>
-      <templateRef ref="app.module.ts"/>
-      <templateRef ref="pageable.ts"/>
-      <templateRef ref="sort.ts"/>
-      <templateRef ref="${variables.etoName#lower_case}-rest.service.ts"/>
-      <templateRef ref="${variables.etoName#lower_case}-list.page.ts"/>
-      <templateRef ref="${variables.etoName#lower_case}-list.page.html"/>
-      <templateRef ref="${variables.etoName#lower_case}-list.page.scss"/>
-      <templateRef ref="${variables.etoName#lower_case}-detail.page.ts"/>
-      <templateRef ref="${variables.etoName#lower_case}-detail.page.html"/>
-      <templateRef ref="${variables.etoName#lower_case}-detail.page.scss"/>
-      <templateRef ref="business-operator.service.ts"/>
-    </increment>
-    <increment name="flutter_screens" description="flutter screens">
+ 
+
+
+
+
+
+  
+    <increment name="flutter_main" description="flutter main and helpers">
       <templateRef ref="main.dart"/>
-       <templateRef ref="splash_normal_view.dart"/>
-       <templateRef ref="splash_large_view.dart"/>
-        <templateRef ref="${variables.etoName#lower_case}_detail_large_view.dart"/>
-        <templateRef ref="${variables.etoName#lower_case}_detail_normal_view.dart"/>
-            <templateRef ref="${variables.etoName#lower_case}_insert_large_view.dart"/>
-        <templateRef ref="${variables.etoName#lower_case}_insert_normal_view.dart"/>
-        <templateRef ref="${variables.etoName#lower_case}_list_large_view.dart"/>
-        <templateRef ref="${variables.etoName#lower_case}_list_normal_view.dart"/>
-           <templateRef ref="login_normal_view.dart"/>
-       <templateRef ref="login_large_view.dart"/>
+      
+    </increment>
+
+
+
+
+    
+   
+
+          
+    <increment name="flutter_screens" description="flutter screens">
+       
+        <templateRef ref="employee_insert_large_view.dart"/>
+        
+    
        
     </increment>
   </increments>

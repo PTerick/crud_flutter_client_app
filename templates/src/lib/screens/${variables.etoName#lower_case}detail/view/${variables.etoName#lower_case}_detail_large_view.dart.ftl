@@ -1,3 +1,0 @@
-import 'package:devon4ng_flutter_application_template/screen/employeedetail/view/employee_detail_normal_view.dart';
-
-class EmployeeDetailLargeView extends EmployeeDetailNormalView {}
