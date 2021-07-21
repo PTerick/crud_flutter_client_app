@@ -3,25 +3,6 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.1">
 
   <templates>
-    <templateExtension ref="${variables.etoName#lower_case}-detail.page.ts" mergeStrategy="tsmerge"/>
-    <templateExtension ref="${variables.etoName#lower_case}-list.page.ts" mergeStrategy="tsmerge_override"/>
-    <templateExtension ref="app.component.ts" mergeStrategy="tsmerge_override"/>
-    <templateExtension ref="app.module.ts" mergeStrategy="tsmerge_override"/>
-    <templateExtension ref="${variables.etoName#lower_case}-rest.service.ts" mergeStrategy="tsmerge_override"/>
-    <templateExtension ref="${variables.etoName#lower_case}.ts" />
-    <templateExtension ref="${variables.etoName#lower_case}-search-criteria.ts" />
-    <templateExtension ref="paginated-list-to.ts" />
-    <templateExtension ref="pageable.ts" />
-    <templateExtension ref="sort.ts" />
-    <templateExtension ref="environment.android.ts" mergeStrategy="tsmerge_override"/>
-    <templateExtension ref="environment.prod.ts" mergeStrategy="tsmerge_override"/>
-    <templateExtension ref="environment.ts" mergeStrategy="tsmerge_override"/>
-    <templateExtension ref="app-routing.module.ts" mergeStrategy="tsmerge_override"/>
-    <templateExtension ref="${variables.etoName#lower_case}-detail.page.html" mergeStrategy="html-ng*"/>
-    <templateExtension ref="${variables.etoName#lower_case}-list.page.html" mergeStrategy="html-ng*"/>
-    <templateExtension ref="es.json" mergeStrategy="jsonmerge_override"/>
-    <templateExtension ref="en.json" mergeStrategy="jsonmerge_override"/>
-    <templateExtension ref="business-operator.service.ts" mergeStrategy="tsmerge_override"/>
   </templates>
 
   <templateScans>
@@ -30,37 +11,65 @@
 
   <increments>
   <increment name="devon4ng-app" description="CRUD devon4ng flutter App">
-      
-      
-      <incrementRef ref="flutter_main"/>
-     
+      <incrementRef ref="flutter_component"/>
       <incrementRef ref="flutter_screens"/>
-    </increment>
- 
-
-
-
-
-
-  
-    <increment name="flutter_main" description="flutter main and helpers">
-      <templateRef ref="main.dart"/>
-      
+      <incrementRef ref="flutter_network"/>
     </increment>
 
-
-
-
-    
-   
-
-          
+    <increment name="flutter_component" description="flutter components">
+      <templateRef ref="config.dart"/>
+      <templateRef ref="size_config.dart"/>
+      <templateRef ref="app_en.arb"/>
+      <templateRef ref="app_it.arb"/>
+      <templateRef ref="ui_dialog_helper.dart"/>
+      <templateRef ref="ui_screen_widget_helper.dart"/>
+      <templateRef ref="platform_utils.dart"/>
+      <templateRef ref="core_packages.dart"/>
+      <templateRef ref="generated_plugin_registrant.dart"/>
+      <templateRef ref="styles.dart"/>
+      <templateRef ref="themes.dart"/>
+    </increment>
     <increment name="flutter_screens" description="flutter screens">
-       
-        <templateRef ref="employee_insert_large_view.dart"/>
-        
-    
+      <templateRef ref="main.dart"/>
+       <templateRef ref="splash_normal_view.dart"/>
+       <templateRef ref="splash_large_view.dart"/>
+        <templateRef ref="${variables.etoName#lower_case}_detail_large_view.dart"/>
+        <templateRef ref="${variables.etoName#lower_case}_detail_normal_view.dart"/>
+        <templateRef ref="${variables.etoName#lower_case}_insert_large_view.dart"/>
+        <templateRef ref="${variables.etoName#lower_case}_insert_normal_view.dart"/>
+        <templateRef ref="${variables.etoName#lower_case}_list_large_view.dart"/>
+        <templateRef ref="${variables.etoName#lower_case}_list_normal_view.dart"/>
+        <templateRef ref="login_normal_view.dart"/>
+       <templateRef ref="login_large_view.dart"/>
        
     </increment>
+     <increment name="flutter_network" description="flutter network">
+      <templateRef ref="${variables.etoName#lower_case}_detail_bloc.dart"/>
+      <templateRef ref="${variables.etoName#lower_case}_list_bloc.dart"/>
+      <templateRef ref="${variables.etoName#lower_case}_insert_bloc.dart"/>
+      <templateRef ref="authentication_bloc.dart"/>
+      <templateRef ref="configuration_bloc.dart"/>
+      <templateRef ref="abstract_bloc.dart"/>
+      <templateRef ref="bloc_event.dart"/>
+      <templateRef ref="bloc_state.dart"/>
+      <templateRef ref="simple_bloc_observer.dart"/>
+      <templateRef ref="${variables.etoName#lower_case}_detail_response_dto.dart"/>
+      <templateRef ref="${variables.etoName#lower_case}_insert_request_dto.dart"/>
+      <templateRef ref="${variables.etoName#lower_case}_insert_response_dto.dart"/>
+      <templateRef ref="${variables.etoName#lower_case}_insert_normal_view.dart"/>
+      <templateRef ref="${variables.etoName#lower_case}_list_response_dto.dart"/>
+      <templateRef ref="${variables.etoName#lower_case}_list_content_response_dto.dart"/>
+      <templateRef ref="${variables.etoName#lower_case}_list_request_dto.dart"/>
+      <templateRef ref="login_request_dto.dart"/>
+      <templateRef ref="token_response_dto.dart"/>
+      <templateRef ref="pageable_dto.dart"/>
+      <templateRef ref="pageable_sort_dto.dart"/>
+      <templateRef ref="http_client_provider.dart"/>            
+      <templateRef ref="rest_client.dart"/>
+      <templateRef ref="rest_client.g.dart"/>
+      <templateRef ref="${variables.etoName#lower_case}_repository.dart"/>            
+      <templateRef ref="abstract_repository.dart"/>            
+      <templateRef ref="authentication_repository.dart"/>           
+  </increment>
   </increments>
 </templatesConfiguration>

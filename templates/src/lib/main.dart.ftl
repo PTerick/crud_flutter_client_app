@@ -2,17 +2,16 @@ import 'package:devon4ng_flutter_application_template/model/bloc/simple_bloc_obs
 import 'package:devon4ng_flutter_application_template/screen/abstract_screen.dart';
 import 'package:devon4ng_flutter_application_template/screen/authentication/view/login_large_view.dart';
 import 'package:devon4ng_flutter_application_template/screen/authentication/view/login_normal_view.dart';
-import 'package:devon4ng_flutter_application_template/screen/${variables.etoName?lower_case}detail/view/${variables.etoName?lower_case}_detail_large_view.dart';
-import 'package:devon4ng_flutter_application_template/screen/${variables.etoName?lower_case}detail/view/${variables.etoName?lower_case}_detail_normal_view.dart';
-import 'package:devon4ng_flutter_application_template/screen/${variables.etoName?lower_case}insert/view/${variables.etoName?lower_case}_insert_large_view.dart';
-import 'package:devon4ng_flutter_application_template/screen/${variables.etoName?lower_case}insert/view/${variables.etoName?lower_case}_insert_normal_view.dart';
-import 'package:devon4ng_flutter_application_template/screen/${variables.etoName?lower_case}list/view/${variables.etoName?lower_case}_list_large_view.dart';
-import 'package:devon4ng_flutter_application_template/screen/${variables.etoName?lower_case}list/view/${variables.etoName?lower_case}_list_normal_view.dart';
-import 'package:devon4ng_flutter_application_template/screen/${variables.etoName?lower_case}update/${variables.etoName?lower_case}_update_large.dart';
-import 'package:devon4ng_flutter_application_template/screen/${variables.etoName?lower_case}update/${variables.etoName?lower_case}_update_normal.dart';
+import 'package:devon4ng_flutter_application_template/screen/${variables.etoName?lower_case}detail/view/${variables.etoName?cap_first}_detail_large_view.dart';
+import 'package:devon4ng_flutter_application_template/screen/${variables.etoName?lower_case}detail/view/${variables.etoName?cap_first}_detail_normal_view.dart';
+import 'package:devon4ng_flutter_application_template/screen/${variables.etoName?lower_case}insert/view/${variables.etoName?cap_first}_insert_large_view.dart';
+import 'package:devon4ng_flutter_application_template/screen/${variables.etoName?lower_case}insert/view/${variables.etoName?cap_first}_insert_normal_view.dart';
+import 'package:devon4ng_flutter_application_template/screen/${variables.etoName?lower_case}list/view/${variables.etoName?cap_first}_list_large_view.dart';
+import 'package:devon4ng_flutter_application_template/screen/${variables.etoName?lower_case}list/view/${variables.etoName?cap_first}_list_normal_view.dart';
 import 'package:devon4ng_flutter_application_template/screen/splash/view/splash_large_view.dart';
 import 'package:devon4ng_flutter_application_template/screen/splash/view/splash_normal_view.dart';
 import 'package:devon4ng_flutter_application_template/themes.dart';
+import 'package:devon4ng_flutter_application_template/util/change_theme_button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -21,11 +20,14 @@ import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
+import 'util/change_theme_button.dart';
 
 void main() {
   Bloc.observer = SimpleBlocObserver();
   runApp(MultiProvider(providers: [
-    Provider(create: (context) => AppTheme.fromType(ThemeType.Theme_Light))
+    Provider(create: (context) => 
+      AppTheme.fromType(ThemeType.Theme_Light)  )
+  
   ], child: AppBootstrapper()));
 }
 
@@ -67,7 +69,7 @@ class _AppBootstrapperState extends State<AppBootstrapper> {
         barBackgroundColor: appModel.theme.barBackgroundCupertinoColor,
       )),
       */
-      initialRoute: "/${variables.etoName?lower_case}ListScreen",
+      initialRoute: "/splashScreen",
       routes: <String, WidgetBuilder>{
         "/splashScreen": (context) => ScreenContainer(
               () => SplashNormalView(),
@@ -78,7 +80,7 @@ class _AppBootstrapperState extends State<AppBootstrapper> {
               () => LoginLargeView(),
             ),
         "/${variables.etoName?lower_case}DetailScreen": (context) => ScreenContainer(
-              () => ${variables.etoName?cap_first}DetailNormalView(),
+              () =>${variables.etoName?cap_first}DetailNormalView(),
               () => ${variables.etoName?cap_first}DetailLargeView(),
             ),
         "/${variables.etoName?lower_case}ListScreen": (context) => ScreenContainer(
@@ -88,10 +90,6 @@ class _AppBootstrapperState extends State<AppBootstrapper> {
         "/${variables.etoName?lower_case}InsertScreen": (context) => ScreenContainer(
               () => ${variables.etoName?cap_first}InsertNormalView(),
               () => ${variables.etoName?cap_first}InsertLargeView(),
-            ),
-        "/${variables.etoName?lower_case}UpdateScreen": (context) => ScreenContainer(
-              () => ${variables.etoName?cap_first}UpdateNormalView(),
-              () => ${variables.etoName?cap_first}UpdateLargeView(),
             ),
       },
     );
